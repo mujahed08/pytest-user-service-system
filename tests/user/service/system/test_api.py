@@ -62,18 +62,16 @@ def test_get_user():
     assert response.status_code == 200
 
 def test_update_user():
-    id = 2
+    id = 13
     simple = fake.simple_profile()
     logger.info(simple)
     logger.info(simple['username'])
     user = {
 		"name" : simple['name'],
-        "username" : simple['username'],
-        "password" : fake.color_name(),
         "enabled": False
     }
     logger.info(user)
-    response = requests.put(f'http://127.0.0.1:8000/users/{id}', data=json.dumps(user))
+    response = requests.put(f'http://127.0.0.1:7000/users/{id}', data=json.dumps(user))
     logger.info(response.json())
     assert response.status_code == 200
 
